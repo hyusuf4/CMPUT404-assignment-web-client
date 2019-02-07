@@ -28,7 +28,7 @@ import json
 
 BASEHOST = '127.0.0.1'
 BASEPORT = 27600 + random.randint(1,100)
-
+print(BASEPORT)
 
 httpclass = httpclient
 #import mysolution
