@@ -71,7 +71,7 @@ class HTTPClient(object):
                 buffer.extend(part)
             else:
                 done = not part
-        return buffer.decode('ISO-8859-1')
+        return buffer.decode('utf-8')
 
     def GET(self, url, args=None):
         (host,port)=self.get_host_port(url)
@@ -88,9 +88,9 @@ class HTTPClient(object):
         get_request+='Connection: close\r\n\r\n'
         self.sendall(get_request)
         data=self.recvall(self.socket)
+        self.close()
         code=self.get_code(str(data))
         body = self.get_body(str(data))
-        self.close()
         return HTTPResponse(code, body)
 
     def POST(self, url, args=None):
@@ -113,6 +113,7 @@ class HTTPClient(object):
         post_request+=post
         self.sendall(post_request)
         data=self.recvall(self.socket)
+        self.close()
         code=self.get_code(str(data))
         body = self.get_body(str(data))
         return HTTPResponse(code, body)
