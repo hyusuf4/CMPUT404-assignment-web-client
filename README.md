@@ -14,5 +14,5 @@ Generally everything is LICENSE'D under the Apache 2 license by Abram Hindle,
 https://github.com/tywtyw2002, and https://github.com/treedust
 
 The httpclient.py includes contributions from:
- Abram Hindle
- Hamdi Yusuf 
+ Abram Hindle,
+  Hamdi Yusuf 
